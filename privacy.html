@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Nuri</title>
+  <meta name="description" content="Nuri privacy policy. Your journal entries are private and never sold." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; }
+
+    :root {
+      --bg:         #F5F0E6;
+      --surface:    #EDE6D5;
+      --text:       #1D1510;
+      --text-muted: #6A5E52;
+      --accent:     #C35D2E;
+      --line:       #D4C7B4;
+      --max-w:      640px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    nav {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 24px;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* Content */
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    .page-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      font-family: monospace;
+    }
+
+    .intro {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-top: 48px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    p { margin-bottom: 14px; font-size: 15px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      margin: 0 0 14px 20px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    ul li { margin-bottom: 6px; }
+
+    .muted { color: var(--text-muted); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { text-decoration: underline; text-underline-offset: 3px; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Nuri</a>
+      <a href="/" class="nav-back">← Back</a>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="meta">Last updated: April 12, 2026</p>
+
+    <div class="intro">
+      Your journal entries are private. We do not sell your data, share it with advertisers,
+      or use it to train AI models. This policy explains clearly what we collect, why, and who
+      sees it.
+    </div>
+
+    <h2>Who we are</h2>
+    <p>
+      Nuri is a journaling app that extracts entities and patterns from your entries to build
+      a private knowledge graph of your life. The app is operated by David Park
+      (<a href="mailto:hi@nuri.ink">hi@nuri.ink</a>).
+    </p>
+
+    <h2>What we collect</h2>
+    <p>We collect only what is necessary to run the app:</p>
+    <ul>
+      <li><strong>Account information</strong> — your email address, used for authentication. No name required.</li>
+      <li><strong>Journal entries</strong> — the text you write. Stored in our database, associated with your account.</li>
+      <li><strong>Extracted data</strong> — entities (people, places, concepts, etc.) and relationships that Nuri derives from your entries. This is stored alongside your entries, not separately shared.</li>
+      <li><strong>Subscription status</strong> — whether you are on the Free or Pro plan, managed via RevenueCat. We do not store payment card details.</li>
+      <li><strong>Basic usage data</strong> — app version, platform (iOS/Android/Web), and error logs. No behavioral tracking or advertising identifiers.</li>
+    </ul>
+
+    <h2>How your entries are processed</h2>
+    <p>
+      When you save a journal entry, its text is sent to <strong>Anthropic</strong> (the makers of Claude)
+      via their API to extract entities and relationships. Anthropic processes this text to return
+      structured data and does not use it to train their models — this is governed by
+      Anthropic's API usage policy.
+    </p>
+    <p>
+      Extracted results are stored in our database alongside your entry. Your raw entry text
+      is never sent to any other third party for AI processing.
+    </p>
+
+    <h2>Third-party services</h2>
+    <ul>
+      <li><strong>Supabase</strong> — database and authentication. Data is stored in Supabase-managed Postgres. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a>.</li>
+      <li><strong>Anthropic</strong> — AI extraction via the Claude API. <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>.</li>
+      <li><strong>RevenueCat</strong> — subscription and in-app purchase management. <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a>.</li>
+    </ul>
+    <p>We do not use analytics platforms, ad networks, or tracking SDKs.</p>
+
+    <h2>Data storage and security</h2>
+    <p>
+      Your data is stored on Supabase infrastructure. Access to your entries is protected by
+      row-level security policies — no other user can read your entries, and our team has
+      minimal access to production data.
+    </p>
+    <p>
+      All data is transmitted over HTTPS. We do not store passwords — authentication is
+      handled via Supabase Auth (email magic link or OAuth).
+    </p>
+
+    <h2>Your rights</h2>
+    <p>You can, at any time:</p>
+    <ul>
+      <li><strong>Export your data</strong> — request a copy of all your entries and extracted data by emailing <a href="mailto:hi@nuri.ink">hi@nuri.ink</a>.</li>
+      <li><strong>Delete your account</strong> — deleting your account permanently removes all your entries, extracted data, and account information from our systems.</li>
+      <li><strong>Correct your data</strong> — you can edit or delete individual entries at any time within the app.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>
+      Nuri is not directed at children under 13. We do not knowingly collect personal
+      information from children under 13. If you believe a child has provided us with
+      personal information, please contact us and we will delete it.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      If we make material changes to this policy, we will notify you by email or with an
+      in-app notice before the changes take effect. The "Last updated" date at the top of
+      this page reflects the most recent revision.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy or your data: <a href="mailto:hi@nuri.ink">hi@nuri.ink</a>
+    </p>
+
+  </div>
+
+  <footer>
+    <a href="/">Nuri</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a>
+    <br /><br />
+    <span class="muted">© 2026 Nuri. All rights reserved.</span>
+  </footer>
+
+</body>
+</html>
