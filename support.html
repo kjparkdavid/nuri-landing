@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Nuri</title>
+  <meta name="description" content="Get help with Nuri. Send us a message and we'll get back to you within one business day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: inherit; }
+
+    :root {
+      --bg:         #F5F0E6;
+      --surface:    #EDE6D5;
+      --text:       #1D1510;
+      --text-muted: #6A5E52;
+      --accent:     #C35D2E;
+      --line:       #D4C7B4;
+      --max-w:      520px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Nav */
+    nav {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 24px;
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    /* Content */
+    main {
+      flex: 1;
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+    }
+
+    /* Header */
+    .eyebrow {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 36px;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+
+    .page-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+    }
+
+    /* Form */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 480px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .field { margin-bottom: 20px; }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 11px 14px;
+      background: white;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      transition: border-color 0.15s, outline 0.15s;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-color: var(--accent);
+    }
+
+    select.form-input { cursor: pointer; }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.6;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 13px 32px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.1s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover  { opacity: 0.88; }
+    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* Success */
+    .success-msg {
+      display: none;
+      margin-top: 40px;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+    }
+    .success-msg p:first-child {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .success-msg p:last-child {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Error */
+    .error-msg {
+      display: none;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--accent);
+      text-align: center;
+    }
+    .error-msg a { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Divider */
+    .divider {
+      margin: 40px 0 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .divider a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .divider a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    footer a { text-decoration: underline; text-underline-offset: 3px; }
+    footer a:hover { color: var(--text); }
+    .muted { color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Nuri</a>
+      <a href="/" class="nav-back">← Back</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <p class="eyebrow">Support</p>
+    <h1 class="page-title">We're here to help.</h1>
+    <p class="page-subtitle">Send us a message and we'll get back to you within one business day.</p>
+
+    <form
+      id="support-form"
+      action="https://formspree.io/f/mlgajvza"
+      method="POST"
+      novalidate
+    >
+      <input type="text" name="_gotcha" style="display:none">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+            autocomplete="name"
+            class="form-input"
+          >
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            autocomplete="email"
+            class="form-input"
+          >
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic" required class="form-input">
+          <option value="" disabled selected>Select a topic</option>
+          <option value="Account & billing">Account &amp; billing</option>
+          <option value="AI / entity extraction">AI / entity extraction</option>
+          <option value="Bug report">Bug report</option>
+          <option value="Feature request">Feature request</option>
+          <option value="Data & privacy">Data &amp; privacy</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Describe your issue or question…"
+          required
+          class="form-input"
+        ></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn" class="submit-btn">Send message →</button>
+    </form>
+
+    <div id="success-msg" class="success-msg">
+      <p>Message sent.</p>
+      <p>We'll get back to you at the email you provided within one business day.</p>
+    </div>
+
+    <div id="error-msg" class="error-msg">
+      Something went wrong. Email us directly at
+      <a href="mailto:hello@nuri.ink">hello@nuri.ink</a>
+    </div>
+
+    <p class="divider">
+      Prefer email? <a href="mailto:hello@nuri.ink">hello@nuri.ink</a>
+    </p>
+
+  </main>
+
+  <footer>
+    <a href="/">Nuri</a> &nbsp;·&nbsp; <a href="/privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="/support.html">Support</a>
+    <br /><br />
+    <span class="muted">© 2026 Nuri. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const form       = document.getElementById('support-form');
+    const successMsg = document.getElementById('success-msg');
+    const errorMsg   = document.getElementById('error-msg');
+    const submitBtn  = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+          errorMsg.style.display = 'none';
+        } else {
+          throw new Error('Non-OK response');
+        }
+      } catch {
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
